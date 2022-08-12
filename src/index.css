@@ -39,12 +39,16 @@ textarea:focus {
   outline: none;
 }
 
-
 .save {
-  background-color: gray;
+  background-color: #e8e7e7;
   border: none;
   border-radius: 15px;
   padding: 7px 10px 7px 10px;
+}
+
+.save:hover {
+  background-color: #d8d7d7;
+  cursor: pointer;
 }
 
 .note {
@@ -55,10 +59,35 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  white-space: pre-wrap;
 }
 
 .note-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.delete-icon {
+  cursor: pointer;
+}
+
+/* search bar section */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: rgb(228, 228, 223);
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 1.5em;
+}
+
+.search-bar input {
+  border: none;
+  background-color: rgb(228, 228, 223);
+}
+
+.search-bar input:focus {
+  outline: none;
 }

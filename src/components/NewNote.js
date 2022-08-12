@@ -2,13 +2,20 @@ import { useState } from "react";
 
 const NewNote = ({ handleAddNote }) => {
   const [text, setText] = useState("");
+  const characterCount = 500; //TO ADD CHARACTER COUNT LIMIT
 
   const handleChange = (event) => {
-    setText(event.target.value);
+    // TO SET THE LIMIT AND PREVENT IT FOR ADDING CHARACTERS IF THE LIMITS IS REACHED
+    if (characterCount - event.target.value.length >= 0)
+      setText(event.target.value);
   };
 
+  // SECTION TO ADD NOTE, AND CLEAR THE NOTE CARD
   const handleSave = () => {
-    handleAddNote(text);
+    if (text.trim().length > 0) {
+      handleAddNote(text);
+      setText("");
+    }
   };
 
   return (
@@ -22,7 +29,8 @@ const NewNote = ({ handleAddNote }) => {
       ></textarea>
 
       <div className="note-footer">
-        <small>200 Remaining</small>
+        <small>{characterCount - text.length} Remaining</small>{" "}
+        {/* DYNAMICALLY ADDED THE CHARACTER COUNT VAARIABLE */}
         <button className="save" onClick={handleSave}>
           Save
         </button>
